@@ -41,6 +41,7 @@ export default class Facebook extends React.Component<{},IState>{
         })
         
         console.log(response);
+    
     }
 
 
@@ -48,36 +49,30 @@ export default class Facebook extends React.Component<{},IState>{
     public render(){
 
         let fbContent;
+        const {UserId} = this.state;
         const {isLoggIn} = this.state;
-
         if(isLoggIn){
-            alert("You have login already");
-            fbContent = (
-                
-                <div style = {{
-                    width:'400px',
-                    margin: 'auto',
-                    background: '#f4f4f4',
-                    padding: '20px'
-                }}>
-                <img src={this.state.picture} alt={this.state.name}/>
-                <h2>Welcome {this.state.name}</h2>
-                Email: {this.state.email}
-                </div>
-            );
+            return(<h1>Here is the userId:  {UserId} </h1>)
+
+            
         } else{
             fbContent = (<FacebookLogin
                 appId="1940752682712533"
                 autoLoad={true}
                 fields="name,email,picture"
                 onClick={this.componentClicked}
-                callback={this.responseFacebook} />)
+                callback={this.responseFacebook} />
+            );
             
         }
         return(
-            <div>
+            <div className="facebook">
+                <div className="facebook-show">
+                    <p>{UserId}</p>
+                        {fbContent}
                 
-            {fbContent}
+                
+                </div>
             </div>
         
         );

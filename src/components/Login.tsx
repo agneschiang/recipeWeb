@@ -58,7 +58,7 @@ export default class Login extends React.Component<{}, IState> {
               
               
               </div>
-              <div className="footer">This footer will always be positioned at the bottom of the page, but <strong>not fixed</strong>.</div>
+              <div className="footer">Copyright By Agnes <strong>2018</strong>.</div>
             </div>
 
 

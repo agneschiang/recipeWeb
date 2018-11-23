@@ -3,7 +3,7 @@ import * as React from "react"
 import Modal from 'react-responsive-modal';
 import RecipeDetail from './components/RecipeDetail'
 import RecipeItem from './components/RecipeItem';
-import Logo from '/src/patrick-logo.png';
+import Logo from './patrick-logo.png';
 
 
 

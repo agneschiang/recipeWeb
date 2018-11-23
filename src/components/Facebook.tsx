@@ -16,12 +16,12 @@ export default class Facebook extends React.Component<{},IState>{
     constructor(props: any){
         super(props)
         this.state = {
-            isLoggIn: false,
-            UserId: "",
-            name: "",
             email:"",
-            picture:""
-        
+            name: "",
+            picture:"",
+            isLoggIn:false,
+            UserId: "",
+            
 
         }
     }
@@ -31,6 +31,7 @@ export default class Facebook extends React.Component<{},IState>{
     }
     
     public responseFacebook(response:any){
+        console.log(response)
         this.setState({
             isLoggIn:true,
             UserId: response.name,
@@ -50,7 +51,9 @@ export default class Facebook extends React.Component<{},IState>{
         const {isLoggIn} = this.state;
 
         if(isLoggIn){
+            alert("You have login already");
             fbContent = (
+                
                 <div style = {{
                     width:'400px',
                     margin: 'auto',
@@ -73,6 +76,7 @@ export default class Facebook extends React.Component<{},IState>{
         }
         return(
             <div>
+                
             {fbContent}
             </div>
         

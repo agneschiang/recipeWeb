@@ -47,6 +47,7 @@ export default class RecipeDetail extends React.Component<IProps, IState> {
                             </table>
                         </div>
                         <div className ="topright">
+                        
                         <Paper>
                         <MenuList>
                             <MenuItem onClick={this.downloadrecipe.bind(this, currentrecipe.url)}>Download</MenuItem>
@@ -88,7 +89,7 @@ export default class RecipeDetail extends React.Component<IProps, IState> {
                         <div className="form-group">
                             <label>Tag</label>
                             <input type="text" className="form-control" id="recipe-edit-tag-input" placeholder="Enter Tag"/>
-                            <small className="form-text text-muted">Tag is used for search</small>
+                            <small className="form-text text-muted">Category is used for search</small>
                         </div>
                         <button type="button" className="btn" onClick={this.updaterecipe}>Save</button>
                     </form>
@@ -169,5 +170,7 @@ export default class RecipeDetail extends React.Component<IProps, IState> {
             }
         })
     }
+
+    
     
 }

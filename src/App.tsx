@@ -2,6 +2,7 @@ import * as React from "react"
 import Modal from 'react-responsive-modal';
 import RecipeDetail from './components/RecipeDetail'
 import RecipeItem from './components/RecipeItem';
+import Logo from '/src/patrick-logo.png';
 
 
 
@@ -12,7 +13,8 @@ interface IState {
 	open: boolean,
 	uploadFileList: any,
 	authenticated: boolean,
-	refCamera: any
+	refCamera: any,
+	showMe: boolean,
 }
 
 
@@ -43,6 +45,7 @@ class App extends React.Component<{}, IState> {
 			open: false,
 			refCamera: React.createRef(), // This add the camera
 			uploadFileList: null,
+			showMe:false,
 			
 		}     	
 		this.selectNewrecipe = this.selectNewrecipe.bind(this)
@@ -51,6 +54,7 @@ class App extends React.Component<{}, IState> {
 		this.handleFileUpload = this.handleFileUpload.bind(this)
 		this.uploadrecipe = this.uploadrecipe.bind(this)
 		this.authenticate = this.authenticate.bind(this)
+		this.openChat = this.openChat.bind(this)
 	}
 
 	
@@ -69,13 +73,30 @@ class App extends React.Component<{}, IState> {
 						<RecipeDetail currentrecipe={this.state.currentrecipe} />
 					</div>
 					<div className="col-5">
+					
 					<div className="btn btn-primary btn-action btn-add" onClick={this.onOpenModal}>Add recipe</div>
 						<RecipeItem recipes={this.state.recipes} selectNewrecipe={this.selectNewrecipe} searchByTag={this.fetchrecipes}/>
 					</div>
+					<div className="chatbot">
+				<button>
+                    <img className="chat-button" onClick= {this.openChat}src={Logo} height='50'/>    
+            	</button>
+				{
+                                    this.state.showMe?
+                                    <div className="Bot">
+                                       
+                                        <iframe src='https://webchat.botframework.com/embed/FoodBot2018?s=PipjVlbLYx4.cwA.Fls.ct1frWWI39XSDwezGpJF6aEqvw31UIaf7BPJTWZoYJs'  className="bot"/>
+                                    </div>
+                                    :null
+                                        
+                            }
+				</div>
 					
 					
 				</div>
+				
 			</div>
+			
 			<Modal open={open} onClose={this.onCloseModal}>
 				<form>
 					<div className="form-group">
@@ -137,10 +158,17 @@ class App extends React.Component<{}, IState> {
 					<button type="button" className="btn" onClick={this.uploadrecipe}>Upload</button>
 				</form>
 			</Modal>
+			
+			
 		</div>
 		);
 	}
-
+	public openChat()
+                {
+                this.setState({
+                        showMe:!this.state.showMe
+                })
+                }
 	
 	// Modal close
 	private onOpenModal = () => {

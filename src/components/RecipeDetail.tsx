@@ -93,7 +93,7 @@ export default class RecipeDetail extends React.Component<IProps, IState> {
                         </div>
                         <div className="form-group">
                             <label>Category</label>
-                            <input type="text" className="form-control" id="recipe-edit-tag-input" placeholder="Enter Tag"/>
+                            <input type="text" className="form-control" id="recipe-edit-tag-input" placeholder="Enter Category"/>
                             <small className="form-text text-muted">Category is used for search</small>
                         </div>
                         <button type="button" className="btn" onClick={this.updaterecipe}>Save</button>
@@ -143,7 +143,8 @@ export default class RecipeDetail extends React.Component<IProps, IState> {
                 "category": updatedTag,
                 "title": updatedTitle,
                 "uploaded": currentrecipe.uploaded,
-                "url": currentrecipe.image,
+                "image": currentrecipe.image,
+                "url": currentrecipe.link,
                 "width": currentrecipe.width
             }),
             headers: {'cache-control': 'no-cache','Content-Type': 'application/json'},

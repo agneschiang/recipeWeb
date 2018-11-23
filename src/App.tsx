@@ -1,9 +1,10 @@
 import {Button} from '@material-ui/core/';
 import * as React from "react"
 import Modal from 'react-responsive-modal';
+import Logo from './bot.png';
 import RecipeDetail from './components/RecipeDetail'
 import RecipeItem from './components/RecipeItem';
-import Logo from './patrick-logo.png';
+
 
 
 
@@ -191,7 +192,7 @@ class App extends React.Component<{}, IState> {
 	private fetchrecipes(tag: any) {
 		let url = "https://foodapi2018.azurewebsites.net/api/RecipesItems"
 		if (tag !== "") {
-			url += "/tag?=" + tag
+			url += "/category?=" + tag
 		}
 		fetch(url, {
 			method: 'GET'
@@ -200,7 +201,7 @@ class App extends React.Component<{}, IState> {
 		.then(json => {
 			let currentrecipe = json[0]
 			if (currentrecipe === undefined) {
-				currentrecipe = {"id":0, "title":"No recipes (╯°□°）╯︵ ┻━┻","url":"","tags":"try a different tag","uploaded":"","width":"0","height":"0"}
+				currentrecipe = {"id":0, "title":"There is no such recipe","url":"","tags":"try a different category","uploaded":"","width":"0","height":"0"}
 			}
 			this.setState({
 				currentrecipe,

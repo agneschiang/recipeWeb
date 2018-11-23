@@ -32,16 +32,16 @@ export default class HomePage extends React.Component<{}>{
     <div className="container">
       <div className="row">
         <div className="header-section text-center">
-          <h2>Features</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Exercitationem nesciunt vitae, maiores, magni dolorum aliquam.</p>
+          <h2>CREATE</h2>
+
           <hr className="bottom-line"/>
         </div>
         <div className="feature-info">
           <div className="fea">
             <div className="col-md-4">
               <div className="heading pull-right">
-                <h4>Latest Technologies</h4>
-                <p>Donec et lectus bibendum dolor dictum auctor in ac erat. Vestibulum egestas sollicitudin metus non urna in eros tincidunt convallis id id nisi in interdum.</p>
+                <h4>POST</h4>
+                <p>User able to create a new post and share it out</p>
               </div>
               <div className="fea-img pull-left"/>
                 
@@ -51,22 +51,22 @@ export default class HomePage extends React.Component<{}>{
           <div className="fea">
             <div className="col-md-4">
               <div className="heading pull-right">
-                <h4>Toons Background</h4>
-                <p>Donec et lectus bibendum dolor dictum auctor in ac erat. Vestibulum egestas sollicitudin metus non urna in eros tincidunt convallis id id nisi in interdum.</p>
+                <h4>UPDATE</h4>
+                <p>Update the information if you there is something that is not right</p>
               </div>
               <div className="fea-img pull-left">
-                <i className="fa fa-drupal"/>
+                <i/>
               </div>
             </div>
           </div>
           <div className="fea">
             <div className="col-md-4">
               <div className="heading pull-right">
-                <h4>Award Winning Design</h4>
-                <p>Donec et lectus bibendum dolor dictum auctor in ac erat. Vestibulum egestas sollicitudin metus non urna in eros tincidunt convallis id id nisi in interdum.</p>
+                <h4>Delete</h4>
+                <p>If you find something really inapproiate, you can delete it</p>
               </div>
               <div className="fea-img pull-left">
-                <i className="fa fa-trophy"/>
+                <i />
               </div>
             </div>
           </div>

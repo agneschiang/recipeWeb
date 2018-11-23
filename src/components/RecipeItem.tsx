@@ -1,4 +1,3 @@
-import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import MediaStreamRecorder from 'msr';
 import * as React from "react";
@@ -27,7 +26,7 @@ export default class RecipeList extends React.Component<IProps, {}> {
                     <form className="search-content">
                          <div className="search">
                          <TextField
-                                id="outlined-with-placeholder"
+                                id="search-tag-textbox"
                                 label="Search Recipes"
                                 placeholder="Search Recipes"
                                 className= "textfield"
@@ -35,7 +34,8 @@ export default class RecipeList extends React.Component<IProps, {}> {
                                 color= "white"
                                 
                                 />
-                           <Button variant="contained" onClick={this.searchByTag} className="Seach-button">Search</Button>
+                            
+                           <div className="btn btn-outline-secondary search-button" onClick = {this.searchByTag}>Search</div>
                            <div className="btn" onClick={this.searchByVoice}><i className="fa fa-microphone" /></div>
                          </div>
                        </form> 
@@ -65,9 +65,9 @@ export default class RecipeList extends React.Component<IProps, {}> {
         for (let i = 0; i < recipeList.length; i++) {
             const children = []
             const recipe = recipeList[i]
-            children.push(<td key={"id" + i}>{recipe.id}</td>)
             children.push(<td key={"name" + i}>{recipe.title}</td>)
-            children.push(<td key={"tags" + i}>{recipe.category}</td>)
+            children.push(<td key={"category" + i}>{recipe.category}</td>)
+            children.push(<td key={"dietary" + i}>{recipe.dietary}</td>)
             table.push(<tr key={i+""} id={i+""} onClick= {this.selectRow.bind(this, i)}>{children}</tr>)
         }
         return table

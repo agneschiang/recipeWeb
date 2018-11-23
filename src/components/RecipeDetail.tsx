@@ -49,8 +49,8 @@ export default class RecipeDetail extends React.Component<IProps, IState> {
                         <div className ="topright">
                         
                         <Paper>
-                        <MenuList>
-                            <MenuItem onClick={this.downloadrecipe.bind(this, currentrecipe.url)}>Download</MenuItem>
+                        <MenuList className="Menutem">
+                            <MenuItem onClick={this.downloadrecipe.bind(this, currentrecipe.image)}>Download</MenuItem>
                             <MenuItem onClick={this.onOpenModal}>Edit</MenuItem>
                             <MenuItem onClick={this.deleterecipe.bind(this, currentrecipe.id)}>Delete</MenuItem>
                         </MenuList>
@@ -59,10 +59,15 @@ export default class RecipeDetail extends React.Component<IProps, IState> {
                         
                         </div>
                         <div className="rest">
+                            <br/>
                             <h5 className="card-title">{currentrecipe.title}</h5>
+                            <br/>
+                            <h6>Cooking time: {currentrecipe.cookTime} {currentrecipe.timeUnit}</h6>
+                            <h6>Serving SIze: {currentrecipe.size} people</h6>
+                            <br/>
                             <p className="card-text">{currentrecipe.description}</p>
-                        
-                            <button className="btn btn-primary">{currentrecipe.url} Read More</button>
+                            <a href={currentrecipe.link} className="btn btn-primary">Read More</a>
+                            
                         </div>
                         
 
@@ -82,12 +87,12 @@ export default class RecipeDetail extends React.Component<IProps, IState> {
                 <Modal open={open} onClose={this.onCloseModal}>
                     <form>
                         <div className="form-group">
-                            <label>recipe Title</label>
+                            <label>Recipe Title</label>
                             <input type="text" className="form-control" id="recipe-edit-title-input" placeholder="Enter Title"/>
                             <small className="form-text text-muted">You can edit any recipe later</small>
                         </div>
                         <div className="form-group">
-                            <label>Tag</label>
+                            <label>Category</label>
                             <input type="text" className="form-control" id="recipe-edit-tag-input" placeholder="Enter Tag"/>
                             <small className="form-text text-muted">Category is used for search</small>
                         </div>

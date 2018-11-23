@@ -1,8 +1,10 @@
+import {Button} from '@material-ui/core/';
 import * as React from "react"
 import Modal from 'react-responsive-modal';
 import RecipeDetail from './components/RecipeDetail'
 import RecipeItem from './components/RecipeItem';
 import Logo from '/src/patrick-logo.png';
+
 
 
 
@@ -74,7 +76,7 @@ class App extends React.Component<{}, IState> {
 					</div>
 					<div className="col-5">
 					
-					<div className="btn btn-primary btn-action btn-add" onClick={this.onOpenModal}>Add recipe</div>
+					<Button className="btn btn-primary btn-action btn-add" onClick={this.onOpenModal}>Add recipe</Button>
 						<RecipeItem recipes={this.state.recipes} selectNewrecipe={this.selectNewrecipe} searchByTag={this.fetchrecipes}/>
 					</div>
 					<div className="chatbot">
